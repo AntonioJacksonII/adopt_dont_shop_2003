@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe "pet index page", type: :feature do
+RSpec.describe "pet index page", type: :feature do
   it "can see the name, approximate age, sex, and shelter name for each pet in the system" do
     pet_1 = Pet.create( name: "Fido",
                         age: 4,
