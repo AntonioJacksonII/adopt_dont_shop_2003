@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get "/pets", to: "pets#index"
   get "/pets/:id", to: "pets#show"
   get "/pets/new", to: "pets#new"
-  post "/pets", to: "pets#create"  # usually a submitted form
+  post "/pets", to: "pets#create"
   get "/pets/:id/edit", to: "pets#edit"
-  put "/pets/:id", to: "pets#update" # usually a submitted form
+  put "/pets/:id", to: "pets#update"
   delete "/pets/:id", to: "pets#destroy"
 end
