@@ -17,5 +17,6 @@ describe "shelter new page", type: :feature do
     fill_in "zip", with: "80202"
     click_button "Create Shelter"
     expect(current_path).to eq("/shelters")
+    expect(page).to have_content("Shelter A")
   end
 end
