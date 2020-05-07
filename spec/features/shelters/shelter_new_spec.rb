@@ -10,12 +10,13 @@ describe "shelter new page", type: :feature do
 
   it "redirects to the shelter index page" do
     visit "/shelters/new"
-    fill_in "shelter[name]", with: "Shelter A"
-    fill_in "shelter[address]", with: "123 Main St"
-    fill_in "shelter[city]", with: "Denver"
-    fill_in "shelter[state]", with: "CO"
-    fill_in "shelter[zip]", with: "80202"
+    fill_in "name", with: "Shelter A"
+    fill_in "address", with: "123 Main St"
+    fill_in "city", with: "Denver"
+    fill_in "state", with: "CO"
+    fill_in "zip", with: "80202"
     click_button "Create Shelter"
     expect(current_path).to eq("/shelters")
+    expect(page).to have_content("Shelter A")
   end
 end
