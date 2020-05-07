@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "pet index page", type: :feature do
-  it "can see the name, approximate age, sex, and shelter name for each pet in the system" do
-    pet_1 = Pet.create( name: "Fido",
+  it "can see the image, name, approximate age, sex, and shelter name for each pet in the system" do
+    pet_1 = Pet.create( image: "/img/fido.jpg",
+                        name: "Fido",
                         age: 4,
                         sex: "male",
                         shelter: "Pablo's Puppies")
-    pet_2 = Pet.create( name: "Spot",
+    pet_2 = Pet.create( image: "/img/spot.jpg",
+                        name: "Spot",
                         age: 1,
                         sex: "female",
                         shelter: "Matt's Mutts")

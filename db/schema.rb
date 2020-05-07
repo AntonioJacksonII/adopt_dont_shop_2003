@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20200506220439) do
   enable_extension "plpgsql"
 
   create_table "pets", force: :cascade do |t|
+    t.string "image"
     t.string "name"
     t.integer "age"
     t.string "sex"
