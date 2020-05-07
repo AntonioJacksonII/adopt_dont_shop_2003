@@ -39,6 +39,20 @@ RSpec.describe "shelter show page", type: :feature do
     expect(page).to have_content(shelter_3.address)
     expect(page).to have_content(shelter_3.city)
     expect(page).to have_content(shelter_3.state)
-    expect(page).to have_content(shelter_3.zip)    
+    expect(page).to have_content(shelter_3.zip)
+  end
+
+  it "shows a form to edit the shelter's data and redirects to the edit page" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+
+    visit "/shelters/#{shelter_1.id}"
+
+    expect(page).to have_link("Update Shelter")
+    click_link "Update Shelter"
+    expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
   end
 end
