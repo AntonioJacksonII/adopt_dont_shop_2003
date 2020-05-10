@@ -1,4 +1,10 @@
-<h1><%= @shelter.name %></h1>
+<p>
+  <%= link_to "Pet Index", "/pets" %>
+  <%= link_to "Shelter Index", "/shelters" %>
+  <%= link_to "Shelter Pets Index", "/shelters/#{@shelter.id}/pets" %>
+</p>
+
+<h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
 <p><%= @shelter.address %></p>
 <p><%= @shelter.city %></p>
 <p><%= @shelter.state %></p>

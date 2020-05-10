@@ -55,4 +55,66 @@ RSpec.describe "shelter show page", type: :feature do
     click_link "Update Shelter"
     expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
   end
+
+  it "has a link to the shelter's show page on the shelter's name" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+
+    visit "/shelters/#{shelter_1.id}"
+
+    expect(page).to have_link("Pablo's Puppies")
+    click_link "Pablo's Puppies"
+    expect(current_path).to eq("/shelters/#{shelter_1.id}")
+  end
+
+  it "has a link to the Pet index" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+
+    visit "/shelters/#{shelter_1.id}"
+
+    expect(page).to have_link("Pet Index")
+
+    click_link "Pet Index"
+
+    expect(current_path).to eq("/pets")
+  end
+
+  it "has a link to the Shelter index" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+
+    visit "/shelters/#{shelter_1.id}"
+
+    expect(page).to have_link("Shelter Index")
+
+    click_link "Shelter Index"
+
+    expect(current_path).to eq("/shelters")
+  end
+
+  it "has a link to the Shelter Pet index" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+
+    visit "/shelters/#{shelter_1.id}"
+
+    expect(page).to have_link("Shelter Pets Index")
+
+    click_link "Shelter Pets Index"
+
+    expect(current_path).to eq("/shelters/#{shelter_1.id}/pets")
+  end
 end
