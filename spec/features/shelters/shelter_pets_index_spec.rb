@@ -71,4 +71,26 @@ describe "Shelter Pets Index Page", type: :feature do
       click_link("Edit Pet")
       expect(current_path).to eq("/pets/#{pet_1.id}/edit")
   end
+
+  it "has links next to each pet to delete that pet" do
+      shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                                address: "123 Main St",
+                                city: "Denver",
+                                state: "CO",
+                                zip: "80202")
+      pet_1 = Pet.create( image: "/img/fido.jpg",
+                      name: "Fido",
+                      age: 4,
+                      sex: "male",
+                      shelter: shelter_1,
+                      description: "cute puppy",
+                      adoption_status: "adoptable")
+
+      visit "/shelters/#{shelter_1.id}/pets"
+      expect(page).to have_content("Fido")
+      expect(page).to have_link("Delete Pet")
+      click_link("Delete Pet")
+      expect(current_path).to eq("/pets")
+      expect(page).to_not have_content("Fido")
+  end
 end

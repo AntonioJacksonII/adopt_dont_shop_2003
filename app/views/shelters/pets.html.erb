@@ -6,6 +6,7 @@
   <h3>Age: <%= pet.age %></h3>
   <h3>Sex: <%= pet.sex %></h3>
   <p>  <%= link_to "Edit Pet", "/pets/#{pet.id}/edit"  %></p>
+  <p>  <%= link_to "Delete Pet", "/pets/#{pet.id}", method: :delete  %></p>
 <% end %>
 <br>
 <%= link_to "Create Pet", "/shelters/#{@shelter_id}/pets/new" %>
