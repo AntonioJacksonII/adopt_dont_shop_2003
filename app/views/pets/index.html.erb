@@ -2,6 +2,7 @@
 
 <% @pets.each do |pet| %>
   <h2>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
+  <p>  <%= link_to "Edit Pet", "/pets/#{pet.id}/edit"  %></p>
   <h3>Age: <%= pet.age %></h3>
   <h3>Sex: <%= pet.sex %></h3>
   <h3>Shelter: <%= pet.shelter.name %></h3>
