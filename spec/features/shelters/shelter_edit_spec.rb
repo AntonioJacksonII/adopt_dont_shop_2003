@@ -30,4 +30,27 @@ describe "shelter edit page", type: :feature do
     expect(page).to have_content("NE")
     expect(page).to have_content("68102")
   end
+
+  it "has a link to the Pet index" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+    pet_1 = Pet.create( image: "/img/fido.jpg",
+                        name: "Fido",
+                        age: 4,
+                        sex: "male",
+                        shelter: shelter_1,
+                        description: "cute puppy",
+                        adoption_status: "adoptable")
+
+    visit "/shelters/#{shelter_1.id}/edit"
+
+    expect(page).to have_link("Pet Index")
+
+    click_link "Pet Index"
+
+    expect(current_path).to eq("/pets")
+  end
 end
