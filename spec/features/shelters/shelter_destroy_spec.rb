@@ -13,6 +13,13 @@ describe "Destroy a Shelter" do
                                 city: "Boulder",
                                 state: "CO",
                                 zip: "80001")
+      pet_1 = Pet.create( image: "/img/fido.jpg",
+                          name: "Fido",
+                          age: 4,
+                          sex: "male",
+                          shelter: shelter_1,
+                          description: "cute puppy",
+                          adoption_status: "adoptable")
 
       visit "/shelters/#{shelter_1.id}"
 
