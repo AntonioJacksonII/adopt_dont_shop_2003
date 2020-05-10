@@ -26,7 +26,7 @@ describe "pet edit page", type: :feature do
     click_button "Update Pet"
 
     expect(current_path).to eq("/pets/#{pet_1.id}")
-    expect(page).to have_content("image_1.jpg")
+    expect(page).to have_xpath("//img[@src='image_1.jpg']")
     expect(page).to have_content("New Name")
     expect(page).to have_content("New Description")
     expect(page).to have_content("10")

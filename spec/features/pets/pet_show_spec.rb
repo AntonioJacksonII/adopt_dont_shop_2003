@@ -18,7 +18,7 @@ describe "pet show page", type: :feature do
 
     visit "/pets/#{pet_1.id}"
 
-    expect(page).to have_content(pet_1.image)
+    expect(page).to have_xpath("//img[@src='#{pet_1.image}']")
     expect(page).to have_content(pet_1.name)
     expect(page).to have_content(pet_1.description)
     expect(page).to have_content(pet_1.age)
