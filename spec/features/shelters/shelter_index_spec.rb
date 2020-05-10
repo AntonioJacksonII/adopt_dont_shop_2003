@@ -43,4 +43,17 @@ RSpec.describe "shelter index page", type: :feature do
     click_link "Pablo's Puppies"
     expect(current_path).to eq("/shelters/#{shelter_1.id}")
   end
+
+    it "has links next to every shelter that take you to that shelter's edit page" do
+      shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                                address: "123 Main St",
+                                city: "Denver",
+                                state: "CO",
+                                zip: "80202")
+
+      visit "/shelters"
+      expect(page).to have_link("Edit Shelter")
+      click_link "Edit Shelter"
+      expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
+    end
 end
