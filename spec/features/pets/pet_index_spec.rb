@@ -111,4 +111,25 @@ RSpec.describe "pet index page", type: :feature do
     expect(current_path).to eq("/pets")
     expect(page).to_not have_content("Fido")
   end
+
+  it "has links on every shelter name that take you to that shelter's show page" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+    pet_1 = Pet.create( image: "/img/fido.jpg",
+                        name: "Fido",
+                        age: 4,
+                        sex: "male",
+                        shelter: shelter_1,
+                        description: "cute puppy",
+                        adoption_status: "adoptable")
+
+    visit "/pets"
+
+    expect(page).to have_link("Pablo's Puppies")
+    click_link "Pablo's Puppies"
+    expect(current_path).to eq("/shelters/#{shelter_1.id}")
+  end
 end
