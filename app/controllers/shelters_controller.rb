@@ -32,6 +32,7 @@ class SheltersController < ApplicationController
 
   def pets
     shelter = Shelter.find(params[:id])
+    @shelter_id = params[:id]
     @pets = shelter.pets
   end
 

@@ -38,4 +38,17 @@ describe "Shelter Pets Index Page", type: :feature do
     expect(page).to_not have_content(pet_2.age)
     expect(page).to_not have_content(pet_2.sex)
   end
+
+  it "has a link to add a new adoptable pet" do
+      shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                                address: "123 Main St",
+                                city: "Denver",
+                                state: "CO",
+                                zip: "80202")
+
+      visit "/shelters/#{shelter_1.id}/pets"
+      expect(page).to have_link("Create Pet")
+      click_link("Create Pet")
+      expect(current_path).to eq("/shelters/#{shelter_1.id}/pets/new")
+  end
 end
