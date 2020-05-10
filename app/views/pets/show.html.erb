@@ -3,7 +3,7 @@
   <%= link_to "Shelter Index", "/shelters" %>
 </p>
 
-<img src="<%=@pet.image %>"
+<img src="<%=@pet.image %>">
 <h1><%= link_to "#{@pet.name}", "/pets/#{@pet.id}" %></h1>
 <p>Description: <%= @pet.description %></p>
 <p>Age: <%= @pet.age %></p>
