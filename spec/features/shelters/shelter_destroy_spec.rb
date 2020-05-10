@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Destroy a Shelter" do
   describe "When I visit a shelter's show page" do
-    it "I can delete a shelter" do
+    it "can delete a shelter" do
       shelter_1 = Shelter.create(name: "Pablo's Puppies",
                                 address: "123 Main St",
                                 city: "Denver",

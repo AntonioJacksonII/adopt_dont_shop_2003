@@ -26,7 +26,7 @@ describe "pet show page", type: :feature do
     expect(page).to have_content(pet_1.adoption_status)
   end
 
-  it "shows a form to edit the pet's data" do
+  it "shows a link to edit the pet's data" do
     shelter_1 = Shelter.create(name: "Pablo's Puppies",
                               address: "123 Main St",
                               city: "Denver",
