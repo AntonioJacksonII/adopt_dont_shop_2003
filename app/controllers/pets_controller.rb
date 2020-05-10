@@ -19,6 +19,10 @@ class PetsController < ApplicationController
     redirect_to "/shelters/#{shelter.id}/pets"
   end
 
+  def edit
+    @pet_id = params[:id]
+  end
+
 private
 
 def pet_params
