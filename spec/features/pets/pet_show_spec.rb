@@ -46,4 +46,25 @@ describe "pet show page", type: :feature do
     click_link "Update Pet"
     expect(current_path).to eq("/pets/#{pet_1.id}/edit")
   end
+
+  it "has a link on the pet's name to the pet's show page" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+    pet_1 = Pet.create( image: "/img/fido.jpg",
+                        name: "Fido",
+                        description: "Cute puppy",
+                        age: 4,
+                        sex: "male",
+                        shelter: shelter_1,
+                        adoption_status: "adoptable")
+
+    visit "/pets/#{pet_1.id}"
+
+    expect(page).to have_link("Fido")
+    click_link "Fido"
+    expect(current_path).to eq("/pets/#{pet_1.id}")
+  end
 end
