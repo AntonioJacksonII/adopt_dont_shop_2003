@@ -19,4 +19,20 @@ describe "shelter new page", type: :feature do
     expect(current_path).to eq("/shelters")
     expect(page).to have_content("Shelter A")
   end
+
+  it "has a link to the Pet index" do
+    shelter_1 = Shelter.create(name: "Pablo's Puppies",
+                              address: "123 Main St",
+                              city: "Denver",
+                              state: "CO",
+                              zip: "80202")
+
+    visit "/shelters/new"
+
+    expect(page).to have_link("Pet Index")
+
+    click_link "Pet Index"
+
+    expect(current_path).to eq("/pets")
+  end
 end
