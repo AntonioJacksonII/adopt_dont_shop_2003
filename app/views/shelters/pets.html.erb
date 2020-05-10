@@ -1,5 +1,8 @@
 <h1>Shelter Pets</h1>
-<p><%= link_to "Pet Index", "/pets" %></p>
+<p>
+  <%= link_to "Pet Index", "/pets" %>
+  <%= link_to "Shelter Index", "/shelters" %>
+</p>
 
 <% @pets.each do |pet| %>
   <p><%= pet.image %></p>

@@ -1,4 +1,8 @@
-<p><%= link_to "Pet Index", "/pets" %></p>
+<p>
+  <%= link_to "Pet Index", "/pets" %>
+  <%= link_to "Shelter Index", "/shelters" %>
+</p>
+
 <p><%= @pet.image %></p>
 <h1><%= link_to "#{@pet.name}", "/pets/#{@pet.id}" %></h1>
 <p><%= @pet.description %></p>
